@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Getflix.Data.Domain.GraphQueryTypes;
+using Getflix.Data.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +21,14 @@ namespace Getflix.Data.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            
+            services.AddSingleton<IVideoRepository, VideoRepository>();
+            services.AddSingleton<VideoType>();
+            services.AddSingleton<AudioType>();
+            services.AddSingleton<SubtitlesType>();
+            services.AddSingleton<GetVideosQuery>();
+            services.AddSingleton<VideosSchema>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,10 +47,13 @@ namespace Getflix.Data.Api
 
             app.UseHttpsRedirection();
             
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
+            // app.UseDefaultFiles();
+            // app.UseStaticFiles();
 
             app.UseRouting();
+            
+            app.UseG
+            app.UseGraphQLGraphiQL();
 
             // app.UseAuthorization();
 

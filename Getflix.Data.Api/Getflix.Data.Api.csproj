@@ -41,4 +41,13 @@
       <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Getflix.Data.Domain\Getflix.Data.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="GraphQL" Version="4.2.0" />
+      <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="5.0.1" />
+    </ItemGroup>
+
 </Project>

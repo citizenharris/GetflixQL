@@ -13,10 +13,10 @@ namespace Getflix.Data.Domain.GraphQueryTypes
             Field(v => v.SeasonNumber);
             Field(v => v.EpisodeNumber);
             Field(v => v.IsTvShow);
-            Field<AudioType>(
+            Field<ListGraphType<AudioType>>(
                 "audioTracks",
                 resolve: context => videoRepository.GetAudioTracksByVideoId(context.Source.Id));
-            Field<SubtitlesType>(
+            Field<ListGraphType<SubtitlesType>>(
                 "subtitles",
                 resolve: context => videoRepository.GetSubtitlesByVideoId(context.Source.Id));
         }
