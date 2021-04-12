@@ -1,5 +1,7 @@
 using Getflix.Data.Domain.GraphQueryTypes;
 using Getflix.Data.Domain.Services;
+using GraphQL.Server;
+using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,14 +23,16 @@ namespace Getflix.Data.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            
+
+            services.AddGraphQL(options => options.EnableMetrics = true)
+                    .AddSystemTextJson(deserializerSettings => { }, serializerSettings => { })
+                    .AddWebSockets();
             services.AddSingleton<IVideoRepository, VideoRepository>();
             services.AddSingleton<VideoType>();
             services.AddSingleton<AudioType>();
             services.AddSingleton<SubtitlesType>();
             services.AddSingleton<GetVideosQuery>();
             services.AddSingleton<VideosSchema>();
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,8 +55,10 @@ namespace Getflix.Data.Api
             // app.UseStaticFiles();
 
             app.UseRouting();
-            
-            app.UseG
+
+            app.UseWebSockets();
+            app.UseGraphQLWebSockets<VideosSchema>();
+            app.UseGraphQL<VideosSchema>();
             app.UseGraphQLGraphiQL();
 
             // app.UseAuthorization();

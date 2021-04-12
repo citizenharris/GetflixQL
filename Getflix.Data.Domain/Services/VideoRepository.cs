@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Getflix.Data.Domain.Models;
 
 namespace Getflix.Data.Domain.Services
@@ -18,15 +19,15 @@ namespace Getflix.Data.Domain.Services
             _subtitles = SetupSubtitles();
         }
 
-        public IEnumerable<Video> GetVideos()
+        public Task<IEnumerable<Video>> GetVideosAsync()
         {
-            return _videos;
+            return Task.FromResult(_videos.AsEnumerable());
         }
 
-        public Video SaveVideo(Video video)
+        public Task<Video> SaveVideoAsync(Video video)
         {
             _videos.Add(video);
-            return _videos.Last();
+            return Task.FromResult(_videos.Last());
         }
 
         public IEnumerable<Audio> GetAudioTracksByVideoId(int videoId)
@@ -92,61 +93,61 @@ namespace Getflix.Data.Domain.Services
                 {
                     Id = 0,
                     VideoId = 0,
-                    Url = new Uri("https://subtitles.one")
+                    Url = new Uri("https://audio.one")
                 },
                 new()
                 {
                     Id = 1,
                     VideoId = 0,
-                    Url = new Uri("https://subtitles.two")
+                    Url = new Uri("https://audio.two")
                 },
                 new()
                 {
                     Id = 2,
                     VideoId = 1,
-                    Url = new Uri("https://subtitles.one")
+                    Url = new Uri("https://audio.one")
                 },
                 new()
                 {
                     Id = 3,
                     VideoId = 1,
-                    Url = new Uri("https://subtitles.two")
+                    Url = new Uri("https://audio.two")
                 },
                 new()
                 {
                     Id = 4,
                     VideoId = 2,
-                    Url = new Uri("https://subtitles.one")
+                    Url = new Uri("https://audio.one")
                 },
                 new()
                 {
                     Id = 5,
                     VideoId = 2,
-                    Url = new Uri("https://subtitles.two")
+                    Url = new Uri("https://audio.two")
                 },
                 new()
                 {
                     Id = 6,
                     VideoId = 3,
-                    Url = new Uri("https://subtitles.one")
+                    Url = new Uri("https://audio.one")
                 },
                 new()
                 {
                     Id = 7,
                     VideoId = 3,
-                    Url = new Uri("https://subtitles.two")
+                    Url = new Uri("https://audio.two")
                 },
                 new()
                 {
                     Id = 8,
                     VideoId = 4,
-                    Url = new Uri("https://subtitles.one")
+                    Url = new Uri("https://audio.one")
                 },
                 new()
                 {
                     Id = 9,
                     VideoId = 4,
-                    Url = new Uri("https://subtitles.two")
+                    Url = new Uri("https://audio.two")
                 }
             };
         }

@@ -1,13 +1,15 @@
+using System;
 using GraphQL.Types;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Getflix.Data.Domain.GraphQueryTypes
 {
     public class VideosSchema : Schema
     {
 
-        public VideosSchema(GetVideosQuery videosQuery)
+        public VideosSchema(IServiceProvider resolver) : base(resolver)
         {
-            Query = videosQuery;
+            Query = resolver.GetRequiredService<GetVideosQuery>();
         }
     }
 }

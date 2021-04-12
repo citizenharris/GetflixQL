@@ -47,6 +47,8 @@
 
     <ItemGroup>
       <PackageReference Include="GraphQL" Version="4.2.0" />
+      <PackageReference Include="GraphQL.Server.All" Version="5.0.1" />
+      <PackageReference Include="GraphQL.Server.Core" Version="5.0.1" />
       <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="5.0.1" />
     </ItemGroup>
 
