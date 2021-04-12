@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Getflix.Data.Domain.Models;
@@ -12,12 +13,9 @@ namespace Getflix.Data.Domain.Services
 
         public VideoRepository()
         {
-            _videos = new List<Video>
-            {
-                new Video()
-            };
-            _audioTracks = new List<Audio>();
-            _subtitles = new List<Subtitles>();
+            _videos = SetupVideos();
+            _audioTracks = SetupAudioTracks();
+            _subtitles = SetupSubtitles();
         }
 
         public IEnumerable<Video> GetVideos()
@@ -39,6 +37,185 @@ namespace Getflix.Data.Domain.Services
         public IEnumerable<Subtitles> GetSubtitlesByVideoId(int videoId)
         {
             return _subtitles.Where(sub => sub.VideoId == videoId);
+        }
+
+        private IList<Video> SetupVideos()
+        {
+            return new List<Video>
+            {
+                new()
+                {
+                    Id = 0,
+                    Title = "JoJo's Bizarre Adventure",
+                    SeasonNumber = 5,
+                    EpisodeNumber = 23,
+                    IsTvShow = true 
+                },
+                new()
+                {
+                    Id = 1,
+                    Title = "Kill La Kill",
+                    SeasonNumber = 2,
+                    EpisodeNumber = 4,
+                    IsTvShow = true 
+                },
+                new()
+                {
+                    Id = 2,
+                    Title = "Violet Evergarden",
+                    SeasonNumber = 1,
+                    EpisodeNumber = 2,
+                    IsTvShow = true 
+                },
+                new()
+                {
+                    Id = 3,
+                    Title = "Invincible",
+                    SeasonNumber = 1,
+                    EpisodeNumber = 5,
+                    IsTvShow = true 
+                },
+                new()
+                {
+                    Id = 4,
+                    Title = "Attack On Titan",
+                    IsTvShow = false
+                }
+            };
+        }
+
+        private IList<Audio> SetupAudioTracks()
+        {
+            return new List<Audio>
+            {
+                new()
+                {
+                    Id = 0,
+                    VideoId = 0,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 1,
+                    VideoId = 0,
+                    Url = new Uri("https://subtitles.two")
+                },
+                new()
+                {
+                    Id = 2,
+                    VideoId = 1,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 3,
+                    VideoId = 1,
+                    Url = new Uri("https://subtitles.two")
+                },
+                new()
+                {
+                    Id = 4,
+                    VideoId = 2,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 5,
+                    VideoId = 2,
+                    Url = new Uri("https://subtitles.two")
+                },
+                new()
+                {
+                    Id = 6,
+                    VideoId = 3,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 7,
+                    VideoId = 3,
+                    Url = new Uri("https://subtitles.two")
+                },
+                new()
+                {
+                    Id = 8,
+                    VideoId = 4,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 9,
+                    VideoId = 4,
+                    Url = new Uri("https://subtitles.two")
+                }
+            };
+        }
+        
+        private IList<Subtitles> SetupSubtitles()
+        {
+            return new List<Subtitles>
+            {
+                new()
+                {
+                    Id = 0,
+                    VideoId = 0,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 1,
+                    VideoId = 0,
+                    Url = new Uri("https://subtitles.two")
+                },
+                new()
+                {
+                    Id = 2,
+                    VideoId = 1,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 3,
+                    VideoId = 1,
+                    Url = new Uri("https://subtitles.two")
+                },
+                new()
+                {
+                    Id = 4,
+                    VideoId = 2,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 5,
+                    VideoId = 2,
+                    Url = new Uri("https://subtitles.two")
+                },
+                new()
+                {
+                    Id = 6,
+                    VideoId = 3,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 7,
+                    VideoId = 3,
+                    Url = new Uri("https://subtitles.two")
+                },
+                new()
+                {
+                    Id = 8,
+                    VideoId = 4,
+                    Url = new Uri("https://subtitles.one")
+                },
+                new()
+                {
+                    Id = 9,
+                    VideoId = 4,
+                    Url = new Uri("https://subtitles.two")
+                }
+            };
         }
     }
 }
