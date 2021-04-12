@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Getflix.Data.Api", "Getflix.Data.Api\Getflix.Data.Api.csproj", "{988AF038-7592-4F48-A581-406CA2F9A7BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Getflix.Data.Domain", "Getflix.Data.Domain\Getflix.Data.Domain.csproj", "{080ACC59-0882-4930-B4EE-519F4B575FA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{988AF038-7592-4F48-A581-406CA2F9A7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{988AF038-7592-4F48-A581-406CA2F9A7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{988AF038-7592-4F48-A581-406CA2F9A7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{988AF038-7592-4F48-A581-406CA2F9A7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080ACC59-0882-4930-B4EE-519F4B575FA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080ACC59-0882-4930-B4EE-519F4B575FA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080ACC59-0882-4930-B4EE-519F4B575FA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080ACC59-0882-4930-B4EE-519F4B575FA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
