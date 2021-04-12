@@ -12,23 +12,17 @@ namespace Getflix.Data.Domain.Services
 
         public VideoRepository()
         {
+            _videos = new List<Video>
+            {
+                new Video()
+            };
             _audioTracks = new List<Audio>();
             _subtitles = new List<Subtitles>();
-            _videos = new List<Video>();
         }
 
         public IEnumerable<Video> GetVideos()
         {
-            return _videos.Select(vid => new Video
-            {
-                Id = vid.Id,
-                Title = vid.Title,
-                SeasonNumber = vid.SeasonNumber,
-                EpisodeNumber = vid.EpisodeNumber,
-                IsTvShow = vid.IsTvShow,
-                Subtitles = GetSubtitlesByVideoId(vid.Id),
-                AudioTracks = GetAudioTracksByVideoId(vid.Id)
-            });
+            return _videos;
         }
 
         public Video SaveVideo(Video video)
@@ -37,12 +31,12 @@ namespace Getflix.Data.Domain.Services
             return _videos.Last();
         }
 
-        private IEnumerable<Audio> GetAudioTracksByVideoId(int videoId)
+        public IEnumerable<Audio> GetAudioTracksByVideoId(int videoId)
         {
             return _audioTracks.Where(audio => audio.VideoId == videoId);
         }
 
-        private IEnumerable<Subtitles> GetSubtitlesByVideoId(int videoId)
+        public IEnumerable<Subtitles> GetSubtitlesByVideoId(int videoId)
         {
             return _subtitles.Where(sub => sub.VideoId == videoId);
         }

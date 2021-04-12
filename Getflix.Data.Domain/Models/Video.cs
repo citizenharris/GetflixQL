@@ -9,7 +9,5 @@ namespace Getflix.Data.Domain.Models
         public int SeasonNumber { get; set; }
         public int EpisodeNumber { get; set; }
         public bool IsTvShow { get; set; }
-        public IEnumerable<Audio> AudioTracks { get; set; }
-        public IEnumerable<Subtitles> Subtitles { get; set; }
     }
 }

@@ -7,7 +7,6 @@ namespace Getflix.Data.Domain.GraphQueryTypes
         public AudioType()
         {
             Field(a => a.Id);
-            Field(a => a.VideoId);
             Field(a => a.Url);
         }
     }

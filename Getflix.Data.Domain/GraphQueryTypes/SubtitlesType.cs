@@ -8,7 +8,6 @@ namespace Getflix.Data.Domain.GraphQueryTypes
         public SubtitlesType()
         {
             Field(s => s.Id);
-            Field(s => s.VideoId);
             Field(s => s.Url);
         }
     }
