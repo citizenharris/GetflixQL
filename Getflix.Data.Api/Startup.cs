@@ -34,21 +34,9 @@ namespace Getflix.Data.Api
                     .AddSystemTextJson(deserializerSettings => {}, serializerSettings => {})
                     .AddWebSockets();
             services.AddSingleton<IVideoRepository, VideoRepository>();
-            services.AddSingleton<VideoType>();
-            services.AddSingleton<AudioType>();
-            services.AddSingleton<SubtitlesType>();
             
-            services.AddSingleton<VideoInputArgument>();
-            services.AddSingleton<SaveVideoMutation>();
-            
-            services.AddSingleton<AudioInputArgument>();
-            services.AddSingleton<SaveAudioMutation>();
-            
-            services.AddSingleton<SubtitlesInputArgument>();
-            services.AddSingleton<SaveSubtitlesMutation>();
-            
-            services.AddSingleton<GetVideosQuery>();
-            
+            services.RegisterGraphQLTypes();
+            services.RegisterMutations();
             services.AddSingleton<VideosSchema>();
         }
 

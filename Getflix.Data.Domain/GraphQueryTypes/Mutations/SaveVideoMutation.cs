@@ -5,11 +5,11 @@ using GraphQL.Types;
 
 namespace Getflix.Data.Domain.GraphQueryTypes.Mutations
 {
-    public class SaveVideoMutation : ObjectGraphType<object>
+    public class SaveVideoMutation : ObjectGraphType
     {
         public SaveVideoMutation(IVideoRepository videoRepository)
         {
-            Name = "SaveVideo";
+            Name = "SaveVideoMutation";
             Field<VideoType>("saveVideo",
                 arguments: new QueryArguments(new QueryArgument<NonNullGraphType<VideoInputArgument>> {Name = "video"}),
                 resolve: context => videoRepository.SaveVideoAsync(context.GetArgument<Video>("video")));
