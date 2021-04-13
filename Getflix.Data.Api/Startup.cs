@@ -34,9 +34,11 @@ namespace Getflix.Data.Api
             services.AddSingleton<IVideoRepository, VideoRepository>();
             services.AddSingleton<VideoType>();
             services.AddSingleton<AudioType>();
+            services.AddSingleton<VideosSchema>();
+            services.AddSingleton<VideoInputArgument>();
+            services.AddSingleton<SaveVideoMutation>();
             services.AddSingleton<SubtitlesType>();
             services.AddSingleton<GetVideosQuery>();
-            services.AddSingleton<VideosSchema>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

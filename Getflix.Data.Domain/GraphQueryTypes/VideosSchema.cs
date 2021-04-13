@@ -9,6 +9,7 @@ namespace Getflix.Data.Domain.GraphQueryTypes
         public VideosSchema(IServiceProvider resolver) : base(resolver)
         {
             Query = resolver.GetRequiredService<GetVideosQuery>();
+            Mutation = resolver.GetRequiredService<SaveVideoMutation>();
         }
     }
 }

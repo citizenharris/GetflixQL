@@ -8,6 +8,8 @@ namespace Getflix.Data.Domain.Services
     {
         public Task<IEnumerable<Video>> GetVideosAsync();
         public Task<Video> SaveVideoAsync(Video video);
+        public Task<Audio> SaveAudioAsync(Audio audio);
+        public Task<Subtitles> SaveSubtitlesAsync(Subtitles subtitles);
         public IEnumerable<Audio> GetAudioTracksByVideoId(int videoId);
         public IEnumerable<Subtitles> GetSubtitlesByVideoId(int videoId);
     }

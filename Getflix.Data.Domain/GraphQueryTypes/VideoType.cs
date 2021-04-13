@@ -8,6 +8,7 @@ namespace Getflix.Data.Domain.GraphQueryTypes
     {
         public VideoType(IVideoRepository videoRepository)
         {
+            Name = "video";
             Field(v => v.Id);
             Field(v => v.Title);
             Field(v => v.SeasonNumber);
