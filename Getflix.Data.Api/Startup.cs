@@ -1,12 +1,12 @@
 using Getflix.Data.Domain.GraphQueryTypes;
 using Getflix.Data.Domain.Services;
 using GraphQL.Server;
-using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace Getflix.Data.Api
 {
@@ -22,11 +22,15 @@ namespace Getflix.Data.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
-
+            services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "Getflix.Data.Api.Core", Version = "v1"});
+            });
+            
             services.AddGraphQL(options => options.EnableMetrics = true)
-                    .AddSystemTextJson(deserializerSettings => { }, serializerSettings => { })
-                    .AddWebSockets();
+                .AddSystemTextJson(deserializerSettings => { }, serializerSettings => { })
+                .AddWebSockets();
             services.AddSingleton<IVideoRepository, VideoRepository>();
             services.AddSingleton<VideoType>();
             services.AddSingleton<AudioType>();
@@ -41,29 +45,22 @@ namespace Getflix.Data.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Getflix.Data.Api.Core v1"));
             }
 
             app.UseHttpsRedirection();
-            
-            // app.UseDefaultFiles();
-            // app.UseStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            
             app.UseWebSockets();
             app.UseGraphQLWebSockets<VideosSchema>();
             app.UseGraphQL<VideosSchema>();
             app.UseGraphQLGraphiQL();
-
-            // app.UseAuthorization();
-
-            // app.UseEndpoints(endpoints => { endpoints.MapRazorPages(); });
         }
     }
 }
