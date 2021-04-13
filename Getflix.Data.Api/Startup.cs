@@ -29,8 +29,8 @@ namespace Getflix.Data.Api
             });
             
             services.AddGraphQL(options => options.EnableMetrics = true)
-                .AddSystemTextJson(deserializerSettings => { }, serializerSettings => { })
-                .AddWebSockets();
+                    .AddSystemTextJson(deserializerSettings => {}, serializerSettings => {})
+                    .AddWebSockets();
             services.AddSingleton<IVideoRepository, VideoRepository>();
             services.AddSingleton<VideoType>();
             services.AddSingleton<AudioType>();

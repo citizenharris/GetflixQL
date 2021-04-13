@@ -19,15 +19,15 @@ namespace Getflix.Data.Domain.Services
             _subtitles = SetupSubtitles();
         }
 
-        public Task<IEnumerable<Video>> GetVideosAsync()
+        public async Task<IEnumerable<Video>> GetVideosAsync()
         {
-            return Task.FromResult(_videos.AsEnumerable());
+            return await Task.FromResult(_videos.AsEnumerable());
         }
 
-        public Task<Video> SaveVideoAsync(Video video)
+        public async Task<Video> SaveVideoAsync(Video video)
         {
             _videos.Add(video);
-            return Task.FromResult(_videos.Last());
+            return await Task.FromResult(_videos.Last());
         }
 
         public IEnumerable<Audio> GetAudioTracksByVideoId(int videoId)
