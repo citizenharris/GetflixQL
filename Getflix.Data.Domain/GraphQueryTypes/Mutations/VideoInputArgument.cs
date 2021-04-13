@@ -12,9 +12,6 @@ namespace Getflix.Data.Domain.GraphQueryTypes
             Field<NonNullGraphType<IntGraphType>>("seasonNumber");
             Field<NonNullGraphType<IntGraphType>>("episodeNumber");
             Field<NonNullGraphType<BooleanGraphType>>("isTvShow");
-            Field<ListGraphType<AudioType>>("audioTracks");
-            Field<ListGraphType<SubtitlesType>>("subtitles");
-
         }
     }
 }
