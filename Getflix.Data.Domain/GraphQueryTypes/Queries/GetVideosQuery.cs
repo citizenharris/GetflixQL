@@ -1,7 +1,7 @@
 using Getflix.Data.Domain.Services;
 using GraphQL.Types;
 
-namespace Getflix.Data.Domain.GraphQueryTypes
+namespace Getflix.Data.Domain.GraphQueryTypes.Queries
 {
     public class GetVideosQuery : ObjectGraphType<object>
     {

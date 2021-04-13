@@ -1,5 +1,6 @@
 using Getflix.Data.Domain.GraphQueryTypes;
 using Getflix.Data.Domain.GraphQueryTypes.Mutations;
+using Getflix.Data.Domain.GraphQueryTypes.Queries;
 using Getflix.Data.Domain.Services;
 using GraphQL.Server;
 using Microsoft.AspNetCore.Builder;

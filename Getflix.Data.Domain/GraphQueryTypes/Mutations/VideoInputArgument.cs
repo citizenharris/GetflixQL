@@ -1,6 +1,6 @@
 using GraphQL.Types;
 
-namespace Getflix.Data.Domain.GraphQueryTypes
+namespace Getflix.Data.Domain.GraphQueryTypes.Mutations
 {
     public class VideoInputArgument: InputObjectGraphType
     {

@@ -1,5 +1,6 @@
 using System;
 using Getflix.Data.Domain.GraphQueryTypes.Mutations;
+using Getflix.Data.Domain.GraphQueryTypes.Queries;
 using GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
 
