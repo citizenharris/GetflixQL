@@ -10,6 +10,7 @@ namespace Getflix.Data.Domain.Services
         public Task<Video> SaveVideoAsync(Video video);
         public Task<Audio> SaveAudioAsync(Audio audio);
         public Task<Subtitles> SaveSubtitlesAsync(Subtitles subtitles);
+        public Task<Video> GetVideoByVideoIdAsync(int videoId);
         public IEnumerable<Audio> GetAudioTracksByVideoId(int videoId);
         public IEnumerable<Subtitles> GetSubtitlesByVideoId(int videoId);
     }

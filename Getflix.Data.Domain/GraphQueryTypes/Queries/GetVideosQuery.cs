@@ -9,6 +9,8 @@ namespace Getflix.Data.Domain.GraphQueryTypes.Queries
         {
             Name = "GetVideosQuery";
             Field<ListGraphType<VideoType>>("videos", resolve: context => videoRepository.GetVideosAsync());
+            
+
         }
     }
 }

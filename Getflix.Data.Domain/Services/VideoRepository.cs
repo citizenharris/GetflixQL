@@ -41,7 +41,12 @@ namespace Getflix.Data.Domain.Services
             _subtitles.Add(subtitles);
             return await Task.FromResult(_subtitles.Last());
         }
+        
+        public async Task<Video> GetVideoByVideoIdAsync(int videoId)
+        {
+            return await Task.FromResult(_videos.Single(video => video.Id == videoId));
 
+        }
         public IEnumerable<Audio> GetAudioTracksByVideoId(int videoId)
         {
             return _audioTracks.Where(audio => audio.VideoId == videoId);

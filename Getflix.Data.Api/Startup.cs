@@ -38,6 +38,8 @@ namespace Getflix.Data.Api
             services.RegisterGraphQLTypes();
             services.RegisterMutations();
             services.AddSingleton<GetVideosQuery>();
+            services.AddSingleton<RootQuery>();
+            services.AddSingleton<GetVideoByIdQuery>();
             services.AddSingleton<VideosSchema>();
         }
 
