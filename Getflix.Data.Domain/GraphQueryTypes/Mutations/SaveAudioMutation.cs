@@ -1,3 +1,4 @@
+using Getflix.Data.Domain.Models;
 using Getflix.Data.Domain.Services;
 using GraphQL;
 using GraphQL.Types;

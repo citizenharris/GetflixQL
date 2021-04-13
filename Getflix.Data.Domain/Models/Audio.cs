@@ -1,6 +1,6 @@
 using System;
 
-namespace Getflix.Data.Domain
+namespace Getflix.Data.Domain.Models
 {
     public class Audio
     {

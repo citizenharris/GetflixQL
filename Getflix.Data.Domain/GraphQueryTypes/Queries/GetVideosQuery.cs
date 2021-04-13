@@ -3,7 +3,7 @@ using GraphQL.Types;
 
 namespace Getflix.Data.Domain.GraphQueryTypes.Queries
 {
-    public class GetVideosQuery : ObjectGraphType<object>
+    public class GetVideosQuery : ObjectGraphType
     {
         public GetVideosQuery(IVideoRepository videoRepository)
         {

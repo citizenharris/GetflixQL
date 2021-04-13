@@ -1,3 +1,4 @@
+using Getflix.Data.Domain.Models;
 using GraphQL.Types;
 
 namespace Getflix.Data.Domain.GraphQueryTypes

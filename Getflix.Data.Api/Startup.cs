@@ -27,16 +27,17 @@ namespace Getflix.Data.Api
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo {Title = "Getflix.Data.Api.Core", Version = "v1"});
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "Getflix.Data.Api", Version = "v1"});
             });
-            
-            services.AddGraphQL(options => options.EnableMetrics = true)
-                    .AddSystemTextJson(deserializerSettings => {}, serializerSettings => {})
-                    .AddWebSockets();
+
+            services.AddGraphQL()
+                .AddSystemTextJson(deserializerSettings => { }, serializerSettings => { })
+                .AddWebSockets();
             services.AddSingleton<IVideoRepository, VideoRepository>();
-            
+
             services.RegisterGraphQLTypes();
             services.RegisterMutations();
+            services.AddSingleton<GetVideosQuery>();
             services.AddSingleton<VideosSchema>();
         }
 
@@ -57,7 +58,7 @@ namespace Getflix.Data.Api
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            
+
             app.UseWebSockets();
             app.UseGraphQLWebSockets<VideosSchema>();
             app.UseGraphQL<VideosSchema>();

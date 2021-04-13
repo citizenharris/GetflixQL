@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Getflix.Data.Domain.Models
+﻿namespace Getflix.Data.Domain.Models
 {
     public class Video
     {

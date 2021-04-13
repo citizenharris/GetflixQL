@@ -25,8 +25,6 @@ namespace Getflix.Data.Api
             services.AddSingleton<SubtitlesInputArgument>();
             services.AddSingleton<SaveSubtitlesMutation>();
             services.AddSingleton<RootMutation>();
-
-            services.AddSingleton<GetVideosQuery>();
         } 
     }
 }
